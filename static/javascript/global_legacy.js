@@ -1,5 +1,22 @@
+let imdb_top_250_url = "https://www.myapifilms.com/imdb/top?start=0&end=250&token=3288d120-5341-47ec-ba5f-569e9e63a603&format=json&data=0";
 
+function getTopImdb(){
+    console.log("getTopImdb");
 
+    fetch(imdb_top_250_url).then(function(res) {
+        // res instanceof Response == true.
+        if (res.ok) {
+            res.json().then(function(data) {
+                console.log(data);
+            });
+        } else {
+            console.log("Looks like the response wasn't perfect, got status", res.status);
+        }
+    }, function(e) {
+        console.log("Fetch failed!", e);
+    });
+}
+getTopImdb()
 let movie_data = imdb_top_movies.data.movies;
 
 function addContentsOnContainer() {
@@ -7,7 +24,7 @@ function addContentsOnContainer() {
     for (let i = 0 ; i<imdb_top_movies.data.movies.length/3; i++){
         let deck = document.createElement("div");
         deck.className = "card-deck";
-        console.log("deck created")
+
         for (let j =0; j < 3; j ++){
             let card_form=
                 `<div class="card">
@@ -32,7 +49,8 @@ function addContentsOnContainer() {
     
                         <span class = "card-text ubd_score"><span data-toggle="tooltip" data-placement="right" title="엄복동의 박스오피스 결과를 기준으로 한 결과값 입니다."  class="badge badge-secondary">25.1UBD</span></span>
                     </div>
-                </div>`
+                </div>
+                <br>`
 
             deck.insertAdjacentHTML('beforeend',
                 card_form

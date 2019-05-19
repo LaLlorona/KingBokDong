@@ -793,14 +793,6 @@ let imdb_top_movies =
                     "idIMDB": "tt0040522",
                     "rating": "8.3",
                     "ranking": 99
-                },
-                {
-                    "title": "Good Will Hunting",
-                    "year": "1997",
-                    "urlPoster": "https://m.media-amazon.com/images/M/MV5BOTI0MzcxMTYtZDVkMy00NjY1LTgyMTYtZmUxN2M3NmQ2NWJhXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX45_CR0,0,45,67_AL_.jpg",
-                    "idIMDB": "tt0119217",
-                    "rating": "8.3",
-                    "ranking": 100
                 }
             ]
         },

@@ -1,0 +1,36 @@
+{
+  "name": "sparpcs_project",
+  "version": "1.0.0",
+  "description": "'자전차왕 엄복동' 이라는 영화는 **150억**원이라는 금액을 투자하고 **13억** 이라는 수익을 올린, 한국 영화의 역사에 한 획을 그은 영화입니다. 이 웹사이트에서는 엄복동의 수익을 기준으로 boxoffice mojo 및 imdb databace 에 등록된 영화의 수익을 비교합니다.",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "morgan": "^1.9.1",
+    "cookie-parser": "^1.4.3",
+    "errorhandler": "^1.5.0",
+    "express-error-handler": "^1.1.0",
+    "express-session": "^1.15.6",
+    "http": "0.0.0",
+    "install": "^0.12.2",
+    "mongo": "^0.1.0",
+    "mongodb": "^3.1.10",
+    "mongoose": "^5.4.1",
+    "npm": "^6.5.0",
+    "path": "^0.12.7",
+    "serve-static": "^1.13.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LaLlorona/KingBokDong.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LaLlorona/KingBokDong/issues"
+  },
+  "homepage": "https://github.com/LaLlorona/KingBokDong#readme"
+}
