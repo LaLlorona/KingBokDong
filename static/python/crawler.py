@@ -9,7 +9,9 @@ from datetime import datetime
 
 client = MongoClient("127.0.0.1")
 db = client.movie_list
-collect = db.top250
+top250 = db.top250
+collect = db.collect
+
 
 top250_url = "http://akas.imdb.com/chart/top"
 
@@ -36,10 +38,22 @@ print(get_top250()[0])
 def makeJsonForTop250():
     movie_ids = get_top250();
     movie_info = []
+    top250.delete_many({})
 
-    for i in range(2):
-        print("working")
+    for i in range(250):
+        print("working %d th element" % i)
         movies = ia.get_movie(movie_ids[i])
+
+        movie_info_on_mojo = collect.find_one({"title": movies['title']})
+
+        gross = movie_info_on_mojo
+
+        if (movie_info_on_mojo != None):
+            gross = movie_info_on_mojo['totalGross']
+
+        print(gross)
+
+
 
         movie = {
             'title': movies['title'],
@@ -47,9 +61,11 @@ def makeJsonForTop250():
             'urlPoster': movies['full-size cover url'],
             'idIMDB': "tt"+movie_ids[i],
             'rating': movies['rating'],
-            'ranking': i+1
+            'ranking': i+1,
+            'gross': gross
+
         }
-        collect.replace_one({"boxOfficeId": movie["idIMDB"]}, movie, upsert=True)
+        top250.replace_one({"boxOfficeId": movie["idIMDB"]}, movie, upsert=True)
     print(movie_info)
 makeJsonForTop250()
 

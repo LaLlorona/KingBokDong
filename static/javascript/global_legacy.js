@@ -1,4 +1,7 @@
-let imdb_top_250_url = "https://www.myapifilms.com/imdb/top?start=0&end=250&token=3288d120-5341-47ec-ba5f-569e9e63a603&format=json&data=0";
+let imdb_top_250_url = "http://localhost:8000/api/gettop250";
+let movie_data;
+
+const ubd_boxoffice = 1147171
 
 function getTopImdb(){
     console.log("getTopImdb");
@@ -7,7 +10,10 @@ function getTopImdb(){
         // res instanceof Response == true.
         if (res.ok) {
             res.json().then(function(data) {
-                console.log(data);
+                console.log(data)
+
+                addContentsOnContainer(data);
+
             });
         } else {
             console.log("Looks like the response wasn't perfect, got status", res.status);
@@ -17,11 +23,11 @@ function getTopImdb(){
     });
 }
 getTopImdb()
-let movie_data = imdb_top_movies.data.movies;
 
-function addContentsOnContainer() {
 
-    for (let i = 0 ; i<imdb_top_movies.data.movies.length/3; i++){
+function addContentsOnContainer(movie_data) {
+
+    for (let i = 0 ; i<movie_data.length/3; i++){
         let deck = document.createElement("div");
         deck.className = "card-deck";
 
@@ -47,7 +53,8 @@ function addContentsOnContainer() {
                             <div class = "centered">${movie_data[i*3+j].ranking}</div>
                         </span>
     
-                        <span class = "card-text ubd_score"><span data-toggle="tooltip" data-placement="right" title="엄복동의 박스오피스 결과를 기준으로 한 결과값 입니다."  class="badge badge-secondary">25.1UBD</span></span>
+                        <span class = "card-text ubd_score"><span data-toggle="tooltip" data-placement="right" title="엄복동의 박스오피스 결과를 기준으로 한 결과값 입니다."  class="badge badge-secondary">
+                        ${movie_data[i*3+j].gross/ubd_boxoffice}UBD</span></span>
                     </div>
                 </div>
                 <br>`
@@ -61,4 +68,4 @@ function addContentsOnContainer() {
 
     }
 }
-addContentsOnContainer();
+//addContentsOnContainer();
