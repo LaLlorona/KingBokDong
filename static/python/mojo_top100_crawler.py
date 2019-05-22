@@ -26,6 +26,7 @@ soup = BeautifulSoup(r.text, "html.parser")
 rows = soup.find_all("tr")
 
 rank = 1
+mojo100.delete_many({})
 for row in rows:
     if "<a href=\"/movies/?id=" in str(row) and "$" in str(row):
 
@@ -55,10 +56,10 @@ for row in rows:
                 print(image_url)
         movie = {
             "title": movie_name,
-            "totalGross": totalGross,
-            "image_url": image_url,
+            "gross": totalGross,
+            "urlPoster": image_url,
             "movie_url": "https://www.boxofficemojo.com"+movie_url,
-            "rank": rank
+            "ranking": rank
 
 
         }

@@ -63,11 +63,22 @@ var movie_schema = new Schema({
 
 var top250_movies = mongoose.model('top250',movie_schema);
 
+var mojo_top100_movies = mongoose.model('mojo100',movie_schema)
+
 app.get('/api/gettop250',function(req,res){
     top250_movies.find(function(err,movies){
         if(err) return res.status(500).send({error: 'database failure'});
         res.json(movies);
     })
+})
+
+app.get('/api/get_mojo_top_100',function(req,res){
+    mojo_top100_movies.find(function(err,movies){
+        if(err) return res.status(500).send({error: 'database failure'});
+        res.json(movies);
+
+    })
+
 })
 
 
