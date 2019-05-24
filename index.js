@@ -32,7 +32,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 
-app.use('/public', static(path.join(__dirname, 'public')));
+app.use('/static', express.static( 'public'));
 
 app.use('api',apiRouter);
 app.use(cors());
