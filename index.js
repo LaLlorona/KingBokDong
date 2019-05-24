@@ -63,7 +63,9 @@ var movie_schema = new Schema({
 
 var top250_movies = mongoose.model('top250',movie_schema);
 
-var mojo_top100_movies = mongoose.model('mojo100',movie_schema)
+var mojo_top100_movies = mongoose.model('mojo100',movie_schema);
+
+var whole_movies = mongoose.model('collect',movie_schema,'collect');
 
 app.get('/api/gettop250',function(req,res){
     top250_movies.find(function(err,movies){
@@ -78,21 +80,19 @@ app.get('/api/get_mojo_top_100',function(req,res){
         res.json(movies);
 
     })
+})
+
+app.post('/api/search',function(req,res){
+
+    whole_movies.find({"title":{$regex: `.*${req.body.query_string}.*`,$options:'i'}},function(err,movies){
+        if(err) return res.status(500).send({error: 'database failure'});
+
+        res.json(movies)
+
+    })
 
 })
 
-
-
-// var movie = new top250_movies(
-//     {
-//         title:"asdf"
-//     }
-// )
-
-// movie.save(function(err, book){
-//     if(err) return console.error(err);
-//     console.dir(book);
-// });
 
 
 var server = app.listen(port, function(){

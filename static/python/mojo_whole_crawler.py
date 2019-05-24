@@ -11,6 +11,7 @@ collect = db.collect
 non_decimal = re.compile(r'[^\d.]+')
 major_sites = ["NUM"]
 movies = []
+count = 0
 
 # feed alphabet into major_site crawl
 for c in ascii_uppercase:
@@ -20,6 +21,8 @@ for c in ascii_uppercase:
 for site in major_sites:
 
     page = 1
+    print(site)
+
     while True:
 
         # fetch table
@@ -36,18 +39,21 @@ for site in major_sites:
 
         parsedCounter = 0
 
+
         for row in rows:
-            if "<a href=\"/movies/?id=" in str(row) and "$" in str(row):
+            if "<a href=\"/movies/?id=" in str(row):
+                gross = 0
 
                 cells = row.find_all("td")
                 parsedCounter += 1
 
                 # total gross
-                totalGross = cells[2].get_text().replace("$", "").replace(",", "")
-                totalGross = non_decimal.sub('', totalGross)
+                # totalGross = cells[2].get_text().replace("$", "").replace(",", "")
+                # totalGross = non_decimal.sub('', totalGross)
+                #
+                # if totalGross:
+                #     totalGross = int(totalGross)
 
-                if totalGross:
-                    totalGross = int(totalGross)
 
                 # start date
                 startDate = cells[6].get_text()
@@ -91,10 +97,22 @@ for site in major_sites:
                     if "/people/chart/?view=Director" in a.get("href"):
                         directors.append(a.get_text())
 
+                b = dir_soup.find_all("b")
+                print(cells[0].get_text())
+                for i in range(len(b)-1, 0, -1):
+                    if 'Worldwide:' in b[i]:
+                        gross = int((b[i+1].text.replace("$", "").replace(",", "")))
+                        print(gross)
+                        break
+                    elif 'Domestic:' in b[i]:
+                        gross = int((b[i+1].text.replace("$", "").replace(",", "")))
+                        print(gross)
+
+
                 movie = {
                     "title": cells[0].get_text(),
                     "boxOfficeId": link,
-                    "gross": totalGross,
+                    "gross": gross,
                     "urlPoster": image_url,
                     "movie_url" : dir_url,
                     "release": startDate,
@@ -102,8 +120,10 @@ for site in major_sites:
 
                 }
 
-                print(movie)
+                #print(movie)
                 collect.replace_one({"boxOfficeId": movie["boxOfficeId"]}, movie, upsert=True)
+                print("currently working %d  element" %count)
+                count +=1
 
         page += 1
 

@@ -49,7 +49,7 @@ def makeJsonForTop250():
         gross = movie_info_on_mojo
 
         if (movie_info_on_mojo != None):
-            gross = movie_info_on_mojo['totalGross']
+            gross = movie_info_on_mojo['gross']
 
         print(gross)
 
