@@ -19,6 +19,8 @@ const expressSession = require('express-session');
 const mongoose = require('mongoose');
 
 
+
+
 var port = process.env.PORT || 8000;
 var cors = require('cors');
 
@@ -32,10 +34,13 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 
-app.use('/static', express.static( 'public'));
+app.use(static(path.join(__dirname,'static')))
 
 app.use('api',apiRouter);
 app.use(cors());
+
+app.set('view engine', 'ejs');
+app.engine('html', require('ejs').renderFile);
 
 var db = mongoose.connection;
 
@@ -91,6 +96,24 @@ app.post('/api/search',function(req,res){
 
     })
 
+})
+app.get('/',function(req,res){
+    res.sendFile(path.join(__dirname+'/static/html/index.html'));
+})
+app.get('/index.html',function(req,res){
+    res.sendFile(path.join(__dirname+'/static/html/index.html'));
+})
+
+app.get('/global_legacy_boxoffice.html',function(req,res){
+    res.sendFile(path.join(__dirname+'/static/html/global_legacy_boxoffice.html'));
+})
+
+app.get('/global_legacy.html',function(req,res){
+    res.sendFile(path.join(__dirname+'/static/html/global_legacy.html'));
+})
+
+app.get('/search.html',function(req,res){
+    res.sendFile(path.join(__dirname+'/static/html/search.html'));
 })
 
 
