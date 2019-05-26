@@ -5,6 +5,7 @@
     <title>세계 영화 순위</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans|East+Sea+Dokdo|Modak" rel="stylesheet">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 </head>
 <body>
@@ -23,8 +24,16 @@
         font-family: 'Modak', cursive;
         color: black;
         font-size: 30px;
+    }
 
-
+    .trophy {
+        position: absolute;
+        top: 50%;
+        left: 45%;
+        transform: translate(-50%, -110%);
+        font-family: 'Modak', cursive;
+        color: black;
+        font-size: 10px;
     }
 
     .img_container {
@@ -108,6 +117,10 @@
         -ms-transform: scale(1);
         transform: scale(1);
     }
+
+    #exampleModalLongTitle {
+         font-family: 'Black Han Sans', sans-serif;
+     }
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="./index.html" id = "main_logo">
@@ -141,6 +154,43 @@
 
 
 
+</div>
+<div class="modal fade" id="explain_icons" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLongTitle">아이콘들의 의미</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <div class="modal-body">
+
+                <div>
+                    <img src="../img/medal_num.png" width = 50em height = 50 em alt="trophy image">
+                    <span>: 역대 박스오피스 흥행 순위를 나타냅니다. </span>
+                </div>
+                <div>
+                    <img src="../img/gold_trophy_num.png" width = 50em height = 50 em alt="trophy image">
+                    <span>: 월드 박스오피스 <strong>2000 UBD</strong> 를 돌파한 역대 최고의 흥행작들입니다.</span>
+                </div>
+                <div>
+                    <img src="../img/silver_trophy_num.png" width = 50em height = 50 em alt="trophy image">
+                    <span>: 월드 박스오피스 <strong>20억달러</strong>를 돌파한 전설적인 흥행작들입니다. </span>
+                </div>
+                <div>
+                    <img src="../img/bronze_trophy_num.png" width = 50em height = 50 em alt="trophy image">
+                    <span>: 월드 박스오피스 <strong>1000 UBD</strong> 를 돌파한 흥행작들입니다. </span>
+                </div>
+                    <span class = "badge badge-secondary">1234 UBD</span>
+                    <span>: 자전차왕 엄복동을 기준으로 얼마만큼의 월드 박스오피스 성적을 거두었는지를 의미합니다. <strong>1UBD 는 약 13억원</strong>을 의미합니다.</span>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
 </div>
 </body>
 
