@@ -4,7 +4,7 @@ console.log("search.js")
 //     console.log($('#movie_title').val())
 // }
 
-let search_url = "http://localhost:8000/api/search";
+let search_url = "http://ssal.sparcs.org:33219/api/search";
 let movie_data;
 
 const ubd_boxoffice = 1147171

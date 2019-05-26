@@ -1,4 +1,4 @@
-let mojo_top100_url = "http://localhost:8000/api/get_mojo_top_100";
+let mojo_top100_url = "http://ssal.sparcs.org:33219/api/gettop250";
 let movie_data;
 
 const ubd_boxoffice = 1147171
