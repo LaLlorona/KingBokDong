@@ -141,8 +141,12 @@
 <div class = "container">
     <div class="form-group">
         <label for="movie_title">영화 이름을 입력하세요!</label>
-        <input type="text" class="form-control" id="movie_title" placeholder="영화 이름" oninput = "onchange_search()">
+        <span id = "loading"></span>
+        <input type="text" class="form-control" id="movie_title" placeholder="영화 이름" oninput = "searchIfStopForOneSec()">
     </div>
+
+
+
     
 </div>
 <div class="modal fade" id="explain_icons" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">

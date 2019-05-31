@@ -27,7 +27,24 @@ for site in major_sites:
 
         # fetch table
         url = "http://www.boxofficemojo.com/movies/alphabetical.htm?letter=" + site + "&p=.htm&page=" + str(page)
-        r = requests.get(url)
+        try:
+            r = requests.get(url)
+        except requests.exceptions.Timeout:
+            page += 1
+            continue
+
+        except requests.exceptions.TooManyRedirects:
+            page += 1
+            continue
+
+        except requests.exceptions.RequestException as e:
+            page += 1
+            continue
+
+            print(e)
+
+
+
 
         print(url)
 
@@ -78,7 +95,7 @@ for site in major_sites:
 
                 # fetch director
                 dir_url = "http://www.boxofficemojo.com/movies/?id=" + link + ".htm"
-                dir_r = requests.get(dir_url)
+                dir_r = requests.get(dir_url, verify=False, timeout=10)
 
                 # load html file into parser
                 dir_soup = BeautifulSoup(dir_r.text, "html.parser")

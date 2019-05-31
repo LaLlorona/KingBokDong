@@ -6,6 +6,7 @@ console.log("search.js")
 
 let search_url = "http://ssal.sparcs.org:33219/api/search";
 let movie_data;
+let spinner = document.getElementById("loading");
 
 const ubd_boxoffice = 1147171
 
@@ -14,6 +15,7 @@ function onchange_search(){
     console.log(JSON.stringify({
         query_string:$('#movie_title').val()
     }))
+
 
     fetch(search_url,{
         method: 'post',
@@ -30,13 +32,16 @@ function onchange_search(){
                 console.log(data)
 
                 addContentsOnContainer(data);
+                spinner.innerHTML = ''
 
             });
         } else {
             console.log("Looks like the response wasn't perfect, got status", res.status);
+            spinner.innerHTML = ''
         }
     }, function(e) {
         console.log("Fetch failed!", e);
+        spinner.innerHTML = ''
     });
 }
 
@@ -155,6 +160,17 @@ function addContentsOnContainer(movie_data) {
         $(".container").append(deck);
 
     }
+}
+let timer;
+function searchIfStopForOneSec(){
+    spinner.innerHTML = `
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>`
+
+    clearTimeout(timer)
+    timer = setTimeout(onchange_search,2000);
+
 }
 
 function removeAllCards(){
