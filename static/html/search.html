@@ -108,6 +108,11 @@
         -ms-transform: scale(1);
         transform: scale(1);
     }
+
+    .disabled {
+        pointer-events: none;
+        cursor: default;
+    }
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="./index.html" id = "main_logo">
@@ -139,6 +144,40 @@
         <input type="text" class="form-control" id="movie_title" placeholder="영화 이름" oninput = "onchange_search()">
     </div>
     
+</div>
+<div class="modal fade" id="explain_icons" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalLongTitle">아이콘들의 의미</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+            <div class="modal-body">
+
+
+                <div>
+                    <img src="../img/gold_trophy_num.png" width = 50em height = 50 em alt="trophy image">
+                    <span>: 월드 박스오피스 <strong>2000 UBD</strong> 를 돌파한 역대 최고의 흥행작들입니다.</span>
+                </div>
+                <div>
+                    <img src="../img/silver_trophy_num.png" width = 50em height = 50 em alt="trophy image">
+                    <span>: 월드 박스오피스 <strong>20억달러</strong>를 돌파한 전설적인 흥행작들입니다. </span>
+                </div>
+                <div>
+                    <img src="../img/bronze_trophy_num.png" width = 50em height = 50 em alt="trophy image">
+                    <span>: 월드 박스오피스 <strong>1000 UBD</strong> 를 돌파한 흥행작들입니다. </span>
+                </div>
+                <span class = "badge badge-secondary">1234 UBD</span>
+                <span>: 자전차왕 엄복동을 기준으로 얼마만큼의 월드 박스오피스 성적을 거두었는지를 의미합니다. <strong>1UBD 는 약 13억원</strong>을 의미합니다.</span>
+            </div>
+
+        </div>
+
+    </div>
+</div>
 </div>
 </body>
 

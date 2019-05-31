@@ -1,4 +1,4 @@
-let mojo_top100_url = "http://ssal.sparcs.org:33219/api/gettop250";
+let mojo_top100_url = "http://ssal.sparcs.org:33219/api/get_mojo_top_100";
 let movie_data;
 
 const ubd_boxoffice = 1147171
@@ -38,7 +38,7 @@ function addContentsOnContainer(movie_data) {
             over_2000_UBD = '';
             over_1000_UBD = '';
             over_2_billion_dollar = '';
-            if(movie_data[i*3+j].gross*1000000/ubd_boxoffice > 2000){
+            if(movie_data[i*3+j].gross*1000000/ubd_boxoffice > 2000){ //2000
                 over_2000_UBD = `
                         <span class = "img_container">
                             <img src="../img/gold_trophy.jpg" width = 50em height = 50 em alt="trophy image">
@@ -47,7 +47,7 @@ function addContentsOnContainer(movie_data) {
                 `
             }
 
-            if(movie_data[i*3+j].gross*1000000/ubd_boxoffice > 1000){
+            if(movie_data[i*3+j].gross*1000000/ubd_boxoffice > 1000){//1000
                 over_1000_UBD = `
                         <span class = "img_container">
                             <img src="../img/bronze_trophy.png" width = 50em height = 50 em alt="trophy image">
@@ -55,7 +55,7 @@ function addContentsOnContainer(movie_data) {
                         </span>
 `
             }
-            if (movie_data[i*3+j].gross > 2000){
+            if (movie_data[i*3+j].gross > 2000){ //2000
                 over_2_billion_dollar = `
                         <span class = "img_container">
                             <img src="../img/silver_trophy.png" width = 50em height = 50 em alt="trophy image">

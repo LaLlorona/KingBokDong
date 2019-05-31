@@ -38,7 +38,7 @@ function addContentsOnContainer(movie_data) {
             over_2000_UBD = '';
             over_1000_UBD = '';
             over_2_billion_dollar = '';
-            if(movie_data[i*3+j].gross/ubd_boxoffice > 2000){
+            if(movie_data[i*3+j].gross/ubd_boxoffice > 2000){ //2000
                 over_2000_UBD = `
                         <span class = "img_container">
                             <img src="../img/gold_trophy.jpg" width = 50em height = 50 em alt="trophy image">
@@ -47,7 +47,7 @@ function addContentsOnContainer(movie_data) {
                 `
             }
 
-            if(movie_data[i*3+j].gross/ubd_boxoffice > 1000){
+            if(movie_data[i*3+j].gross/ubd_boxoffice > 1000){ //1000
                 over_1000_UBD = `
                         <span class = "img_container">
                             <img src="../img/bronze_trophy.png" width = 50em height = 50 em alt="trophy image">
@@ -55,7 +55,7 @@ function addContentsOnContainer(movie_data) {
                         </span>
 `
             }
-            if (movie_data[i*3+j].gross > 2000000000){
+            if (movie_data[i*3+j].gross > 2000000000){ //2000000000
                 over_2_billion_dollar = `
                         <span class = "img_container">
                             <img src="../img/silver_trophy.png" width = 50em height = 50 em alt="trophy image">
@@ -93,7 +93,7 @@ function addContentsOnContainer(movie_data) {
                         ${over_1000_UBD}
     
                         <span class = "card-text ubd_score"><span data-toggle="tooltip" data-placement="right" title="엄복동의 박스오피스 결과를 기준으로 한 결과값 입니다."  class="badge badge-secondary">
-                        ${movie_data[i*3+j].gross/ubd_boxoffice} UBD</span></span>
+                        ${(movie_data[i*3+j].gross/ubd_boxoffice).toFixed(3)} UBD</span></span>
                     </div>
                 </div>
                 <br>`
