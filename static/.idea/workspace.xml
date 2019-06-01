@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3015e007-a190-4996-ab1a-70464f4e2857" name="Default Changelist" comment="" />
+    <list default="true" id="3015e007-a190-4996-ab1a-70464f4e2857" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +48,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/python/mojo_top100_crawler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
+            <state relative-caret-position="-64">
               <caret line="32" column="25" lean-forward="true" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
@@ -355,12 +357,12 @@
       <workItem from="1559298182172" duration="6000" />
       <workItem from="1559302015723" duration="2158000" />
       <workItem from="1559360067670" duration="25000" />
-      <workItem from="1559402774083" duration="1060000" />
+      <workItem from="1559402774083" duration="1756000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37659000" />
+    <option name="totallyTimeSpent" value="38355000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -542,7 +544,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/python/mojo_top100_crawler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
+        <state relative-caret-position="-64">
           <caret line="32" column="25" lean-forward="true" selection-start-line="32" selection-start-column="25" selection-end-line="32" selection-end-column="25" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
