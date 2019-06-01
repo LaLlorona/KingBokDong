@@ -17,56 +17,65 @@ for c in ascii_uppercase:
 
 # loop major sites
 
-url = "https://www.boxofficemojo.com/alltime/world/"
-r = requests.get(url)
-print(url)
-
-soup = BeautifulSoup(r.text, "html.parser")
-
-rows = soup.find_all("tr")
-
+# url = "https://www.boxofficemojo.com/alltime/world/"
+# r = requests.get(url)
+# print(url)
+#
+# soup = BeautifulSoup(r.text, "html.parser")
+#
+# rows = soup.find_all("tr")
+#
+# rank = 1
+# mojo100.delete_many({})
 rank = 1
-mojo100.delete_many({})
-for row in rows:
-    if "<a href=\"/movies/?id=" in str(row) and "$" in str(row):
+for k in range(1, 4):
+    url = "https://www.boxofficemojo.com/alltime/world/?pagenum="+str(k)+"&p=.htm"
+    r = requests.get(url)
+    print(url)
 
-        cells = row.find_all("td")
+    soup = BeautifulSoup(r.text, "html.parser")
+    rows = soup.find_all("tr")
 
-        # total gross
-        movie_name = cells[1].get_text()
-        print(movie_name)
+    for row in rows:
+        if "<a href=\"/movies/?id=" in str(row) and "$" in str(row):
 
-        movie_url = cells[1].a['href']
-        print(movie_url)
+            cells = row.find_all("td")
 
-        totalGross = cells[3].get_text().replace("$", "").replace(",", "")
-        print(totalGross)
+            # total gross
+            movie_name = cells[1].get_text()
+            print(movie_name)
 
-        image_page = requests.get("https://www.boxofficemojo.com"+movie_url)
+            movie_url = cells[1].a['href']
+            print(movie_url)
 
-        soup = BeautifulSoup(image_page.text, "html.parser")
+            totalGross = cells[3].get_text().replace("$", "").replace(",", "")
+            print(totalGross)
 
-        images = soup.find_all("img")
+            image_page = requests.get("https://www.boxofficemojo.com" + movie_url)
 
-        image_url = ""
+            soup = BeautifulSoup(image_page.text, "html.parser")
 
-        for img in images:
-            if 'border="1"' in str(img):
-                image_url = img['src']
-                print(image_url)
-        movie = {
-            "title": movie_name,
-            "gross": totalGross,
-            "urlPoster": image_url,
-            "movie_url": "https://www.boxofficemojo.com"+movie_url,
-            "ranking": rank
+            images = soup.find_all("img")
 
+            image_url = ""
 
-        }
+            for img in images:
+                if 'border="1"' in str(img):
+                    image_url = img['src']
+                    print(image_url)
+            movie = {
+                "title": movie_name,
+                "gross": totalGross,
+                "urlPoster": image_url,
+                "movie_url": "https://www.boxofficemojo.com" + movie_url,
+                "ranking": rank
 
-        print(movie)
-        mojo100.replace_one({"title": movie["title"]}, movie, upsert=True)
-        rank += 1
+            }
+
+            print(movie)
+            mojo100.replace_one({"title": movie["title"]}, movie, upsert=True)
+            rank += 1
+
 
 
 print("done")
