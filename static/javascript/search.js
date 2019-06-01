@@ -49,9 +49,9 @@ function onchange_search(){
 
 function addContentsOnContainer(movie_data) {
     removeAllCards()
-    let over_2000_UBD = '';
-    let over_1000_UBD = '';
-    let over_2_billion_dollar = '';
+    let over_2bili = '';
+    let over_500_UBD = '';
+    let over_100_UBD = '';
 
     for (let i = 0 ; (i< movie_data.length/3) && (i < 5); i++){
         let deck = document.createElement("div");
@@ -60,9 +60,9 @@ function addContentsOnContainer(movie_data) {
 
         for (let j =0; j < 3; j ++){
             let card_form;
-            over_2000_UBD = '';
-            over_1000_UBD = '';
-            over_2_billion_dollar = '';
+            over_2bili = '';
+            over_500_UBD = '';
+            over_100_UBD = '';
 
             if (i*3+j >= movie_data.length){ //movie_data 보다 긴 경우
                 card_form=
@@ -90,29 +90,20 @@ function addContentsOnContainer(movie_data) {
                 <br>`
                 }
             else{
-                if(movie_data[i*3+j].gross/ubd_boxoffice > 2000){ //2000
-                    over_2000_UBD = `
-                        
-                            <img src="../img/gold_trophy_num.png" width = 50em height = 50 em alt="trophy image">
-                            
-                        
+                if(movie_data[i*3+j].gross > 2000000000){ //2000
+                    over_2bili = `
+                        <img src="../img/gold_trophy_num.png" width = 50em height = 50 em alt="trophy image">
                 `
                 }
 
-                if(movie_data[i*3+j].gross/ubd_boxoffice > 1000){ //1000
-                    over_1000_UBD = `
-                        
-                            <img src="../img/bronze_trophy_num.png" width = 50em height = 50 em alt="trophy image">
-                            
-                        
+                if(movie_data[i*3+j].gross/ubd_boxoffice > 500){ //1000
+                    over_500_UBD = `
+                         <img src="../img/silver_trophy_num.png" width = 50em height = 50 em alt="trophy image">
 `
                 }
-                if (movie_data[i*3+j].gross > 2000000000){ //2000000000
-                    over_2_billion_dollar = `
-                        
-                            <img src="../img/silver_trophy_num.png" width = 50em height = 50 em alt="trophy image">
-                            
-                        
+                if (movie_data[i*3+j].gross/ubd_boxoffice > 100 ){ //2000000000
+                    over_100_UBD = `
+                         <img src="../img/bronze_trophy_num.png" width = 50em height = 50 em alt="trophy image">
                 
                     `
                 }
@@ -137,9 +128,9 @@ function addContentsOnContainer(movie_data) {
                             </span>
                         </h5>
                         <p>
-                        ${over_2000_UBD}
-                        ${over_2_billion_dollar}
-                        ${over_1000_UBD}
+                        ${over_2bili}
+                        ${over_500_UBD}
+                        ${over_100_UBD}
                         </p>
                         
                         
