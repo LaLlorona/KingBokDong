@@ -27,6 +27,7 @@ for site in major_sites:
 
         # fetch table
         url = "http://www.boxofficemojo.com/movies/alphabetical.htm?letter=" + site + "&p=.htm&page=" + str(page)
+        r = ''
         try:
             r = requests.get(url)
         except requests.exceptions.Timeout:

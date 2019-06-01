@@ -26,9 +26,49 @@
         font-size : 30px;
 
     }
+    #main_logo{
+        font-family: 'Black Han Sans', sans-serif;
+    }
+    .carousel_image {
+
+        height: 400px;
+    }
+    .carousel-inner > .item > img{
+        margin:auto;
+    }
+
+    .carousel_title {
+        color: black;
+        font-size: 20px;
+
+    }
 
 
 </style>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="./index.html" id = "main_logo">
+        <img src="../img/ubd_1.png" alt="" width = 50px;>
+        KingBokDong
+
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="./global_legacy_boxoffice.html">박스오피스 순위</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="./global_legacy.html">IMDB 순위</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="./search.html">영화 검색</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+<br>
 <div class = "container">
     <div class = "jumbotron" id = "head_jumbotron">
         <p class = "text-center" id = "title">KingBokDong</p>
@@ -42,6 +82,46 @@
         <p class = "text-center content_title">최고의 영화입니다. </p>
         <p class = "text-center"><b>150억원의 제작비</b>, <b>13억원 의 박스오피스 매출</b>, <b>최종 관람객 17만</b>의 신화.  </p>
         <p class = "text-center">엄복동은 2019년 영화계에 끊임 없는 즐거움을 주었습니다.</p>
+        <div class="bd-example">
+            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img  src="../img/medal.png" class=" mx-auto d-block carousel_image" alt="...">
+                        <div class="carousel-caption d-none d-md-block carousel_title">
+                            <h5>First slide label</h5>
+                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img  src="../img/medal.png" class="rounded mx-auto d-block carousel_image" alt="...">
+                        <div class="carousel-caption d-none d-md-block carousel_title">
+                            <h5>Second slide label</h5>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img  src="../img/ubd_review.png" class="rounded mx-auto d-block carousel_image" alt="..." >
+                        <div class="carousel-caption d-none d-md-block carousel_title">
+                            <h5>Third slide label</h5>
+                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
 
     </div>
 
