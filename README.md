@@ -4,17 +4,11 @@
 
 
 
-이 웹페이지에는 **13.4/150 = 0.0893 의 수익률을 1 UBD** 라고 정의합니다. 이 단위를 기준으로 
+이 웹페이지에는 **1147171 달러** 또는 **한화 13억원**을 **1UBD** 라고 정의합니다. 이 단위를 기준으로 
 
-현재 상영중인 한국 영화
-
-상영이 끝난 한국 영화 
-
-imdb top 250 영화
-
-유저가 알고 싶은 영화
-
-의 UBD 지수를 제공합니다.
+* 역대 박스오피스 top 100 영화
+* 영화 평론 사이트 IMDB 의 유저 평점 top 250 영화
+* 유저가 알고 싶은 영화 
 
  
 
@@ -23,7 +17,6 @@ imdb top 250 영화
 
 
 * main.html: '자전차왕 엄복동' 이라는 영화에 대해 소개 
-* korea_airng.html: 현재 상영중인 한국 영화의 박스오피스 결과를 엄복동과 비교 
-* korea_regacy.html: 상영이 끝난 한국 영화의 박스포이스 결과를 엄복동의 박스오피스와 비교 
-* global_regacy.html: imdb 영화 top 250의 박스오피스 결과를 엄복동의 박스오피스 결과와 비교 
-* search.html: 검색기능을 추가해서, 유저가 원하는 영화의 박스오피스 결과를 엄복동과 비교 
+* global_legacy_boxoffice.html : <https://www.boxofficemojo.com/> 에 등록된 **월드와이드 박스오피스 상위 100위**의 흥행 성적을 UBD 지수로 제공함
+* global_regacy.html: <https://www.imdb.com/> 에 등록된 **유저 평점 상위 250위 영화**들의 흥행 성적을 UBD 지수로 제공함
+* search.html: https://www.boxofficemojo.com/ 에 등록된 모든 영화들중 **유저가 검색한 영화**의 UBD 지수를 제공함
